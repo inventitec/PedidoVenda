@@ -62,7 +62,7 @@ type
     procedure LimparCamposCliente;
     procedure AtualizarGrid;
 
-    function FormartarCasasDecimais(pValor: string): string;
+    function FormatarCasasDecimais(pValor: string): string;
   public
     { Public declarations }
   end;
@@ -76,7 +76,7 @@ implementation
 
 procedure TFrmPedidoVenda.AtualizarCampoTotal;
 begin
-  edtVlrTotal.Text := FormatFloat('0.00', StrToFloatDef(edtQtd.Text,0) * StrToFloatDef(edtVlrUnit.Text,0));
+  edtVlrTotal.Text := FormatFloat('0.00', (StrToFloatDef(edtQtd.Text,0) * StrToFloatDef(edtVlrUnit.Text,0)));
 end;
 
 procedure TFrmPedidoVenda.AtualizarGrid;
@@ -94,9 +94,9 @@ begin
     try
       grdItens.Cells[0,i+1] := IntToStr(item.CodigoProduto);
       grdItens.Cells[1,i+1] := produto.Descricao;
-      grdItens.Cells[2,i+1] := FormartarCasasDecimais(FloatToStr(item.Quantidade));
-      grdItens.Cells[3,i+1] := FormartarCasasDecimais(CurrToStr(item.ValorUnitario));
-      grdItens.Cells[4,i+1] := FormartarCasasDecimais(CurrToStr(item.ValorTotal));
+      grdItens.Cells[2,i+1] := FormatarCasasDecimais(FloatToStr(item.Quantidade));
+      grdItens.Cells[3,i+1] := FormatarCasasDecimais(CurrToStr(item.ValorUnitario));
+      grdItens.Cells[4,i+1] := FormatarCasasDecimais(CurrToStr(item.ValorTotal));
     finally
       produto.Free;
     end;
@@ -286,12 +286,12 @@ begin
       Exit;
     end;
 
-    edtVlrUnit.Text   := FormartarCasasDecimais(CurrToStr(produto.PrecoVenda));
+    edtVlrUnit.Text   := FormatarCasasDecimais(CurrToStr(produto.PrecoVenda));
     edtDescricao.Text := produto.Descricao;
 
     //️ SOMENTE PARA NOVO ITEM
     if FEditRow = -1 then
-      edtQtd.Text := FormartarCasasDecimais('1');
+      edtQtd.Text := FormatarCasasDecimais('1');
 
     AtualizarCampoTotal;
     SetarFoco(edtQtd);
@@ -302,17 +302,17 @@ end;
 
 procedure TFrmPedidoVenda.edtQtdExit(Sender: TObject);
 begin
-  edtQtd.Text := FormartarCasasDecimais(edtQtd.Text);
+  edtQtd.Text := FormatarCasasDecimais(edtQtd.Text);
   AtualizarCampoTotal;
 end;
 
 procedure TFrmPedidoVenda.edtVlrUnitExit(Sender: TObject);
 begin
-  edtVlrUnit.Text := FormartarCasasDecimais(edtVlrUnit.Text);
+  edtVlrUnit.Text := FormatarCasasDecimais(edtVlrUnit.Text);
   AtualizarCampoTotal;
 end;
 
-function TFrmPedidoVenda.FormartarCasasDecimais(pValor: string): string;
+function TFrmPedidoVenda.FormatarCasasDecimais(pValor: string): string;
 begin
   Result := FormatFloat('0.00', StrToFloatDef(pValor,0));
 end;
@@ -368,8 +368,8 @@ begin
     begin
       FEditRow           := idx;
       edtCodProduto.Text := IntToStr(FPedido.Itens[idx].CodigoProduto);
-      edtQtd.Text        := FormartarCasasDecimais(FloatToStr(FPedido.Itens[idx].Quantidade));
-      edtVlrUnit.Text    := FormartarCasasDecimais(CurrToStr(FPedido.Itens[idx].ValorUnitario));
+      edtQtd.Text        := FormatarCasasDecimais(FloatToStr(FPedido.Itens[idx].Quantidade));
+      edtVlrUnit.Text    := FormatarCasasDecimais(CurrToStr(FPedido.Itens[idx].ValorUnitario));
       edtDescricao.Text  := FPedido.Itens[idx].Descricao;
       SetarFoco(edtCodProduto);
     end;

@@ -1,0 +1,73 @@
+; ============================================
+; CONFIGURAÇÃO DE CONEXÃO COM BANCO DE DADOS
+; Sistema: Pedido de Venda
+; Teste Técnico - Desenvolvedor Delphi
+; ============================================
+
+[DATABASE]
+; Caminho completo para o arquivo do banco Firebird (.fdb)
+; Exemplo: C:\Projetos\PedidoVenda\database\pedidos.fdb
+Database=
+
+; Usuário do Firebird
+Username=
+
+; Senha do usuário do Firebird
+Password=
+
+; Endereço do servidor Firebird
+; Exemplo - Use "localhost" para banco local
+; Exemplo 2 - Firebird em servidor remoto:
+; Database=192.168.1.100:/data/pedidos.fdb
+; Server=192.168.1.100
+Server=localhost
+
+; Porta do Firebird (padrão: 3050)
+Port=3050
+
+; Caminho para a biblioteca cliente do Firebird (fbclient.dll)
+; Coloque na mesma pasta do executável ou especifique o caminho completo
+; Exemplo: .\fbclient.dll (na mesma pasta)
+; Exemplo: C:\Firebird\Firebird_3_0\fbclient.dll
+ClientLibrary=fbclient.dll
+
+
+; ============================================
+; INSTRUÇÕES DE CONFIGURAÇÃO
+; ============================================
+
+; 1. RENOMEIE ESTE ARQUIVO:
+;    Copie/renomeie "Config.ini.example" para "Config.ini"
+;
+; 2. CONFIGURE OS PARÂMETROS:
+;    - Database: caminho do seu arquivo .fdb
+;    - Password: senha do seu Firebird
+;    - ClientLibrary: caminho do fbclient.dll
+;
+; 3. COLOQUE NA PASTA CERTA:
+;    O arquivo Config.ini deve ficar na MESMA PASTA do executável
+;
+; 4. fbclient.dll:
+;    - Copie o fbclient.dll para a pasta do executável
+;    - Ou ajuste o caminho em ClientLibrary
+;
+; 5. TESTE A CONEXÃO:
+;    Execute a aplicação e verifique se conecta
+
+
+; ============================================
+; EXEMPLOS PRÁTICOS
+; ============================================
+
+; Exemplo 1 - Banco na pasta do projeto:
+; Database=D:\Projetos\PedidoVenda\database\pedidos.fdb
+; ClientLibrary=.\fbclient.dll
+
+; Exemplo 2 - Firebird em servidor remoto:
+; Database=192.168.1.100:/data/pedidos.fdb
+; Server=192.168.1.100
+; ClientLibrary=C:\Firebird\fbclient.dll
+
+; Exemplo 3 - Firebird instalado padrão:
+; Database=C:\Firebird\DATABASE\PEDIDOS.FDB
+; ClientLibrary=C:\Firebird\fbclient.dll
