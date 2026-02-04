@@ -2,7 +2,7 @@ object FrmPedidoVenda: TFrmPedidoVenda
   Left = 0
   Top = 0
   Caption = 'Pedido de venda'
-  ClientHeight = 431
+  ClientHeight = 517
   ClientWidth = 773
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -79,6 +79,14 @@ object FrmPedidoVenda: TFrmPedidoVenda
     Width = 67
     Height = 13
     Caption = 'Total: R$ 0,00'
+  end
+  object lblObs: TLabel
+    Left = 16
+    Top = 405
+    Width = 60
+    Height = 13
+    Caption = 'Observa'#231#227'o'
+    FocusControl = memObs
   end
   object Label1: TLabel
     Left = 535
@@ -172,13 +180,20 @@ object FrmPedidoVenda: TFrmPedidoVenda
     TabOrder = 10
     OnKeyDown = grdItensKeyDown
   end
+  object memObs: TMemo
+    Left = 16
+    Top = 421
+    Width = 658
+    Height = 88
+    TabOrder = 11
+  end
   object btnGravar: TButton
-    Left = 666
-    Top = 385
+    Left = 682
+    Top = 451
     Width = 80
     Height = 25
     Caption = 'Gravar Pedido'
-    TabOrder = 11
+    TabOrder = 12
     OnClick = btnGravarClick
   end
   object edtVlrTotal: TEdit
