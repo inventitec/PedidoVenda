@@ -25,6 +25,7 @@ type
     lblQtd: TLabel;
     lblVlrUnit: TLabel;
     lblTotal: TLabel;
+    lblObs: TLabel;
     edtCodCliente: TEdit;
     edtNomeCliente: TEdit;
     edtCidade: TEdit;
@@ -34,6 +35,7 @@ type
     edtVlrUnit: TEdit;
     btnAddItem: TButton;
     grdItens: TStringGrid;
+    memObs: TMemo;
     btnGravar: TButton;
     edtVlrTotal: TEdit;
     Label1: TLabel;
@@ -173,6 +175,7 @@ begin
     Exit;
   end;
 
+  FPedido.Observacao := memObs.Text;
   FPedido.DataEmissao := Date;
 
   try
@@ -187,6 +190,7 @@ begin
     edtCodCliente.Clear;
     LimparCamposCliente;
     LimparCamposProduto;
+    memObs.Clear;
     AtualizarGrid;
     AtualizarTotal;
 
