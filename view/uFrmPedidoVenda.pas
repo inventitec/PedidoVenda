@@ -374,6 +374,7 @@ begin
       begin
         FPedido.Itens.Delete(idx);
         AtualizarGrid;
+        AtualizarTotal;
       end;
       Key := 0;
     end;
