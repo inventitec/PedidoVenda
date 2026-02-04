@@ -26,8 +26,7 @@ begin
   qry := TFDQuery.Create(nil);
   try
     qry.Connection := DM.DB;
-    qry.SQL.Text :=
-      'SELECT CODIGO, DESCRICAO, PRECO_VENDA '+
+    qry.SQL.Text   :=  'SELECT CODIGO, DESCRICAO, PRECO_VENDA '+
       'FROM PRODUTO '+
       'WHERE CODIGO = :CODIGO';
     qry.ParamByName('CODIGO').AsInteger := pCodigo;

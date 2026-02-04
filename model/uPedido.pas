@@ -11,10 +11,11 @@ type
   private
     function GetValorTotal: Currency;
   public
-    Numero: Integer;
-    CodigoCliente: Integer;
-    DataEmissao: TDate;
-    Itens: TObjectList<TPedidoItem>;
+    Numero        : Integer;
+    CodigoCliente : Integer;
+    DataEmissao   : TDate;
+    Observacao    : string;
+    Itens         : TObjectList<TPedidoItem>;
 
     constructor Create;
     destructor Destroy; override;
