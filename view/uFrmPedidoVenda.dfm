@@ -173,8 +173,8 @@ object FrmPedidoVenda: TFrmPedidoVenda
     OnClick = btnAddItemClick
   end
   object grdItens: TStringGrid
-    Left = 16
-    Top = 119
+    Left = 19
+    Top = 111
     Width = 746
     Height = 250
     TabOrder = 10
@@ -201,6 +201,7 @@ object FrmPedidoVenda: TFrmPedidoVenda
     Top = 80
     Width = 80
     Height = 21
+    TabStop = False
     ReadOnly = True
     TabOrder = 8
   end

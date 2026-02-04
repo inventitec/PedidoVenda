@@ -133,6 +133,20 @@ begin
     Exit;
   end;
 
+  if StrToFloatDef(edtQtd.Text,0) <= 0 then
+  begin
+    ShowMessage('Quantidade inválida.');
+    SetarFoco(edtQtd);
+    Exit;
+  end;
+
+  if StrToFloatDef(edtVlrUnit.Text,0) <= 0 then
+  begin
+    ShowMessage('Valor unitário inválido.');
+    SetarFoco(edtVlrUnit);
+    Exit;
+  end;
+
   if FEditRow >= 0 then
   begin
     pItem               := FPedido.Itens[FEditRow];
