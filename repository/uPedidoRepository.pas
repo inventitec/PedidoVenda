@@ -31,11 +31,12 @@ begin
     DM.DB.StartTransaction;
     try
       qry.Connection := DM.DB;
-      qry.SQL.Text   := 'INSERT INTO PEDIDO (DATA_EMISSAO, CODIGO_CLIENTE, VALOR_TOTAL) ' +
-        'VALUES (:DATA, :CLIENTE, :TOTAL)';
+      qry.SQL.Text   := 'INSERT INTO PEDIDO (DATA_EMISSAO, CODIGO_CLIENTE, VALOR_TOTAL, OBSERVACAO) ' +
+        'VALUES (:DATA, :CLIENTE, :TOTAL, :OBS)';
       qry.ParamByName('DATA').AsDate       := pPedido.DataEmissao;
       qry.ParamByName('CLIENTE').AsInteger := pPedido.CodigoCliente;
       qry.ParamByName('TOTAL').AsCurrency  := pPedido.ValorTotal;
+      qry.ParamByName('OBS').AsString      := pPedido.Observacao;
       qry.ExecSQL;
 
       qryNum.Connection := DM.DB;
